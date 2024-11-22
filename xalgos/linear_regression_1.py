@@ -1,28 +1,24 @@
 import numpy as np
 
-
 class LinearRegression:
-
-    def __init__(self, lr = 0.001, n_iters=1000):
-        self.lr = lr
-        self.n_iters = n_iters
-        self.weights = None
-        self.bias = None
+    def __init__(self):
+        self.slope = None
+        self.intercept = None
 
     def fit(self, X, y):
-        n_samples, n_features = X.shape
-        self.weights = np.zeros(n_features)
-        self.bias = 0
-
-        for _ in range(self.n_iters):
-            y_pred = np.dot(X, self.weights) + self.bias
-
-            dw = (1/n_samples) * np.dot(X.T, (y_pred-y))
-            db = (1/n_samples) * np.sum(y_pred-y)
-
-            self.weights = self.weights - self.lr * dw
-            self.bias = self.bias - self.lr * db
+        n = len(X)
+        x_mean = np.mean(X)
+        y_mean = np.mean(y)
+        numerator = 0
+        denominator = 0
+        for i in range(n):
+            numerator += (X[i] - x_mean) * (y[i] - y_mean)
+            denominator += (X[i] - x_mean) ** 2
+        self.slope = numerator / denominator
+        self.intercept = y_mean - self.slope * x_mean
 
     def predict(self, X):
-        y_pred = np.dot(X, self.weights) + self.bias
+        y_pred = []
+        for x in X:
+            y_pred.append(self.slope * x + self.intercept)
         return y_pred
