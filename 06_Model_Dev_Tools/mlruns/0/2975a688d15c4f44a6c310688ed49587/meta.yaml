@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/johnmoses/Workspace/zero-to-hero-python-ai/06_Model_Dev_Tools/mlruns/0/2975a688d15c4f44a6c310688ed49587/artifacts
+end_time: 1756238953311
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2975a688d15c4f44a6c310688ed49587
+run_name: glamorous-cod-322
+run_uuid: 2975a688d15c4f44a6c310688ed49587
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756238953305
+status: 3
+tags: []
+user_id: johnmoses
